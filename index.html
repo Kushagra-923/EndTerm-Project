@@ -8,166 +8,344 @@
 <style>
 * {
   margin: 0;
-    padding: 0;
- box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-    background: white;
- padding: 30px;
+  background: white;
+  padding: 30px;
 }
 
-/* ===== STRUCTURE of my nigger ===== */
 .optimusPrime {
-      max-width: 1200px;
-   margin: auto;
- background: white;
-    border-radius: 24px;
- overflow: hidden;
-   box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
 }
 
 .ironManHUD {
   background: linear-gradient(135deg, #ef4444, #dc2626);
-     padding: 40px 30px;
+  padding: 40px 30px;
   color: white;
-   text-align: center;
+  text-align: center;
+}
+
+.navButtons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navBtn {
+  padding: 12px 30px;
+  border-radius: 999px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.navBtn:hover {
+  background: white;
+  color: #ef4444;
+}
+
+.navBtn.active {
+  background: white;
+  color: #ef4444;
 }
 
 .avengersHQ {
-      padding: 35px;
+  padding: 35px;
 }
 
-/* ===== SUMMARY ===== */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
 .infinityStones {
-   display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
- gap: 25px;
-    margin-bottom: 35px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
 }
 
 .arcReactor {
-    padding: 30px;
+  padding: 30px;
   border-radius: 20px;
-     background: white;
- box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .arcReactor h3 {
-      color: #555;
-   margin-bottom: 10px;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 .arcReactor .amount {
   font-size: 2.2rem;
-      font-weight: 700;
+  font-weight: 700;
 }
 
 .hulkMode .amount { color: #22c55e; }
 .scarletWitchMode .amount { color: #ef4444; }
 .thanosBalance .amount { color: #eab308; }
 
-/* ===== INPUT taing from here ===== */
 .jarvisConsole {
-    padding: 30px;
-   border-radius: 20px;
- box-shadow: inset 0 0 0 1px #e5e7eb;
-     margin-bottom: 35px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+  margin-bottom: 35px;
 }
 
 .formGrid {
   display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-   gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
 }
 
 input, select {
-    padding: 14px;
- border-radius: 10px;
-     border: 1px solid #d1d5db;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
 }
 
 button {
-   margin-top: 15px;
-      padding: 14px;
+  margin-top: 15px;
+  padding: 14px;
   border-radius: 12px;
- border: none;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-   color: white;
- cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
 }
 
-/* ===== FELETER ===== */
+button:hover {
+  opacity: 0.9;
+}
+
 .controlPanel {
-   display: flex;
- gap: 12px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .toggleSwitch {
-      padding: 10px 22px;
- border-radius: 999px;
+  padding: 10px 22px;
+  border-radius: 999px;
   border: none;
-     background: #e5e7eb;
- cursor: pointer;
+  background: #e5e7eb;
+  cursor: pointer;
+  margin-top: 0;
 }
 
 .toggleSwitch.engaged {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: white;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
 }
 
-/* ===== Total paisa ===== */
 .warArchive {
-     max-height: 500px;
- overflow-y: auto;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .combatEntry {
-   display: flex;
-       justify-content: space-between;
- padding: 18px;
-      margin-bottom: 15px;
- background: white;
-   border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  gap: 15px;
 }
 
-.damageReport.income { color: #22c55e; }
-.damageReport.expense { color: #ef4444; }
+.damageReport.income { color: #22c55e; font-weight: 600; }
+.damageReport.expense { color: #ef4444; font-weight: 600; }
 
 .snapButton {
-   background: #ef4444;
-    color: white;
- border-radius: 10px;
-   padding: 8px 14px;
+  background: #ef4444;
+  color: white;
+  border-radius: 10px;
+  padding: 8px 14px;
   border: none;
+  margin-top: 0;
 }
 
-/* ===== CHART ===== */
 .statsRoom {
-    padding: 30px;
-   border-radius: 20px;
-      margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
 }
 
 .energyBar {
   background: #e5e7eb;
-    height: 38px;
- border-radius: 999px;
-   overflow: hidden;
-      margin-bottom: 16px;
+  height: 38px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
 }
 
 .energyFill {
-    height: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: white;
- display: flex;
-    align-items: center;
-   padding-left: 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  font-weight: 600;
+}
+
+/* Udhar Styles */
+.udharSection {
+  margin-bottom: 30px;
+}
+
+.udharCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.udharCard {
+  padding: 25px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.udharCard h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.udharAmount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.udharAmount.positive {
+  color: #22c55e;
+}
+
+.udharAmount.negative {
+  color: #ef4444;
+}
+
+.udharActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.udharActions button {
+  flex: 1;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.addPersonBtn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.udharHistory {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.udharHistoryItem {
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMsg {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modalContent h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modalContent input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modalActions button {
+  flex: 1;
+  margin-top: 0;
+}
+
+.cancelBtn {
+  background: #6b7280;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
 }
 </style>
 </head>
@@ -177,225 +355,475 @@ button {
 <div class="optimusPrime">
 
 <header class="ironManHUD">
-    <h1>Personal Finance Tracker</h1>
+  <h1>Personal Finance Tracker</h1>
+  <div class="navButtons">
+    <button class="navBtn active" onclick="switchPage('finance')">Finance</button>
+    <button class="navBtn" onclick="switchPage('udhar')">Udhar</button>
+  </div>
 </header>
 
 <div class="avengersHQ">
 
+<!-- FINANCE PAGE -->
+<div id="financePage" class="page active">
+
 <div class="infinityStones">
-    <div class="arcReactor hulkMode">
-        <h3>Total Income</h3>
-        <div class="amount" id="chottaBheem">₹0.00</div>
-    </div>
-    <div class="arcReactor scarletWitchMode">
-        <h3>Total Expense</h3>
-        <div class="amount" id="ultronExpense">₹0.00</div>
-    </div>
-    <div class="arcReactor thanosBalance">
-        <h3>Balance</h3>
-        <div class="amount" id="arjun">₹0.00</div>
-    </div>
+  <div class="arcReactor hulkMode">
+    <h3>Total Income</h3>
+    <div class="amount" id="chottaBheem">₹0.00</div>
+  </div>
+  <div class="arcReactor scarletWitchMode">
+    <h3>Total Expense</h3>
+    <div class="amount" id="ultronExpense">₹0.00</div>
+  </div>
+  <div class="arcReactor thanosBalance">
+    <h3>Balance</h3>
+    <div class="amount" id="arjun">₹0.00</div>
+  </div>
 </div>
 
 <div class="jarvisConsole">
-<form id="shieldForm">
-<div class="formGrid">
-    <input id="missionBrief" placeholder="Description" required>
-        <input id="powerLevel" type="number" placeholder="Amount" required>
-   <select id="alignmentType" required>
+  <form id="shieldForm">
+    <div class="formGrid">
+      <input id="missionBrief" placeholder="Description" required>
+      <input id="powerLevel" type="number" step="0.01" placeholder="Amount" required>
+      <select id="alignmentType" required>
         <option value="">Type</option>
-            <option value="income">Income</option>
+        <option value="income">Income</option>
         <option value="expense">Expense</option>
-   </select>
-    <select id="battleClass" required>
-      <option value="">Category</option>
-    </select>
-</div>
-<button>Add Transaction</button>
-</form>
+      </select>
+      <select id="battleClass" required>
+        <option value="">Category</option>
+      </select>
+    </div>
+    <div class="errorMsg" id="formError"></div>
+    <button type="submit">Add Transaction</button>
+  </form>
 </div>
 
 <div class="statsRoom">
-    <h2>Spending by Category</h2>
-   <div id="powerDistribution"></div>
+  <h2>Spending by Category</h2>
+  <div id="powerDistribution"></div>
 </div>
 
 <div class="battleLog">
-<div class="controlPanel">
+  <div class="controlPanel">
     <button class="toggleSwitch engaged" onclick="filterWalaFunction('all', this)">All</button>
-       <button class="toggleSwitch" onclick="filterWalaFunction('income', this)">Income</button>
+    <button class="toggleSwitch" onclick="filterWalaFunction('income', this)">Income</button>
     <button class="toggleSwitch" onclick="filterWalaFunction('expense', this)">Expense</button>
-</div>
-<div class="warArchive" id="warArchive"></div>
+  </div>
+  <div class="warArchive" id="warArchive"></div>
 </div>
 
 </div>
+
+<!-- UDHAR PAGE -->
+<div id="udharPage" class="page">
+
+<div class="udharSection">
+  <div class="jarvisConsole">
+    <h2>People</h2>
+    <button class="addPersonBtn" onclick="openAddPersonModal()">+ Add Person</button>
+  </div>
+
+  <div class="udharCards" id="udharCards"></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- Add Person Modal -->
+<div id="addPersonModal" class="modal">
+  <div class="modalContent">
+    <h2>Add Person</h2>
+    <input type="text" id="personName" placeholder="Enter person's name" required>
+    <div class="errorMsg" id="personError"></div>
+    <div class="modalActions">
+      <button class="cancelBtn" onclick="closeAddPersonModal()">Cancel</button>
+      <button onclick="addPerson()">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Transaction Modal -->
+<div id="addTransactionModal" class="modal">
+  <div class="modalContent">
+    <h2 id="transactionModalTitle">Add Transaction</h2>
+    <input type="text" id="transactionDesc" placeholder="Description" required>
+    <input type="number" id="transactionAmount" step="0.01" placeholder="Amount (+ they owe you, - you owe them)" required>
+    <div class="errorMsg" id="transactionError"></div>
+    <div class="modalActions">
+      <button class="cancelBtn" onclick="closeTransactionModal()">Cancel</button>
+      <button onclick="addTransaction()">Add</button>
+    </div>
+  </div>
 </div>
 
 <script>
-/*
-  Personal Finance Tracker
-  Built while learning DOM + JS state handling.
-  Names are themed just for fun.
-*/
-
 var allTransactions = [];
- var activeFilter = 'all';
+var activeFilter = 'all';
+var udharData = [];
+var currentPage = 'finance';
+var currentPersonId = null;
 
-var incomeTypes = ['Salary','Freelance','Investment'];
-   var expenseTypes = ['Food','Bills','Shopping','Health'];
+var incomeTypes = ['Salary','Freelance','Investment','Other'];
+var expenseTypes = ['Food','Bills','Shopping','Health','Transport','Entertainment','Other'];
 
 /* ---- localStorage helpers ---- */
-function saveToLocalStorage() {
-   try {
-        localStorage.setItem('financeData', JSON.stringify(allTransactions));
-   } catch (e) {
-        console.log('storage failed');
-   }
+function saveToStorage() {
+  try {
+    localStorage.setItem('financeData', JSON.stringify(allTransactions));
+    localStorage.setItem('udharData', JSON.stringify(udharData));
+  } catch (e) {
+    console.log('Storage failed');
+  }
 }
 
-function loadFromLocalStorage() {
-   var stored = localStorage.getItem('financeData');
-   if (stored) {
-        try {
-            allTransactions = JSON.parse(stored);
-        } catch (e) {
-            allTransactions = [];
-        }
-   }
+function loadFromStorage() {
+  try {
+    var stored = localStorage.getItem('financeData');
+    if (stored) {
+      allTransactions = JSON.parse(stored);
+    }
+    var udharStored = localStorage.getItem('udharData');
+    if (udharStored) {
+      udharData = JSON.parse(udharStored);
+    }
+  } catch (e) {
+    allTransactions = [];
+    udharData = [];
+  }
 }
 
+/* ---- Page Switching ---- */
+function switchPage(page) {
+  currentPage = page;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.navBtn').forEach(b => b.classList.remove('active'));
+  
+  if (page === 'finance') {
+    document.getElementById('financePage').classList.add('active');
+    document.querySelectorAll('.navBtn')[0].classList.add('active');
+  } else {
+    document.getElementById('udharPage').classList.add('active');
+    document.querySelectorAll('.navBtn')[1].classList.add('active');
+    renderUdharCards();
+  }
+}
+
+/* ---- Finance Functions ---- */
 function categoryMagicThingy() {
- alignmentType.onchange = function() {
-      battleClass.innerHTML = '<option value="">Category</option>';
+  alignmentType.onchange = function() {
+    battleClass.innerHTML = '<option value="">Category</option>';
     var list = alignmentType.value === 'income' ? incomeTypes : expenseTypes;
-        list.forEach(x => {
+    list.forEach(x => {
       var o = document.createElement('option');
-          o.textContent = o.value = x;
-        battleClass.appendChild(o);
+      o.textContent = o.value = x;
+      battleClass.appendChild(o);
     });
   };
 }
 
+function showError(elementId, message) {
+  var el = document.getElementById(elementId);
+  el.textContent = message;
+  el.style.display = 'block';
+  setTimeout(() => {
+    el.style.display = 'none';
+  }, 3000);
+}
+
 function formGoBrrr() {
   shieldForm.onsubmit = function(e) {
-       e.preventDefault();
+    e.preventDefault();
 
-       var entry = {
-          id: Date.now(),
-          description: missionBrief.value,
-          amount: +powerLevel.value,
-          type: alignmentType.value,
-          category: battleClass.value,
-          date: new Date().toLocaleDateString()
-       };
+    var amt = parseFloat(powerLevel.value);
+    var desc = missionBrief.value.trim();
 
-   allTransactions.push(entry);
-   saveToLocalStorage();
+    // Validation
+    if (!desc) {
+      showError('formError', 'Description cannot be empty');
+      return;
+    }
 
-     shieldForm.reset();
-        rerenderEverythingAgain();
+    if (isNaN(amt) || amt <= 0) {
+      showError('formError', 'Please enter valid Details');
+      return;
+    }
+
+    var entry = {
+      id: Date.now(),
+      description: desc,
+      amount: amt,
+      type: alignmentType.value,
+      category: battleClass.value,
+      date: new Date().toLocaleDateString()
+    };
+
+    allTransactions.push(entry);
+    saveToStorage();
+    shieldForm.reset();
+    rerenderEverythingAgain();
   };
 }
 
 function totalMoneyThingy() {
-   var bheemPower = 0;
-   var villainDamage = 0;
+  var bheemPower = 0;
+  var villainDamage = 0;
 
-   for (var i = 0; i < allTransactions.length; i++) {
-        var t = allTransactions[i];
-      if (t.type === 'income') {
-           bheemPower += t.amount;
-      } else {
-        villainDamage += t.amount;
-      }
-   }
+  allTransactions.forEach(t => {
+    if (t.type === 'income') {
+      bheemPower += t.amount;
+    } else {
+      villainDamage += t.amount;
+    }
+  });
 
-   return {
-        bheemPower: bheemPower,
-     villainDamage: villainDamage,
-        arjunDecision: bheemPower - villainDamage
-   };
+  return {
+    bheemPower: bheemPower,
+    villainDamage: villainDamage,
+    arjunDecision: bheemPower - villainDamage
+  };
 }
 
 function updateTheBigNumbers() {
-   var m = totalMoneyThingy();
-    chottaBheem.innerHTML = '₹' + m.bheemPower.toFixed(2);
- ultronExpense.innerHTML = '₹' + m.villainDamage.toFixed(2);
-     arjun.innerHTML = '₹' + m.arjunDecision.toFixed(2);
+  var m = totalMoneyThingy();
+  chottaBheem.innerHTML = '₹' + m.bheemPower.toFixed(2);
+  ultronExpense.innerHTML = '₹' + m.villainDamage.toFixed(2);
+  arjun.innerHTML = '₹' + m.arjunDecision.toFixed(2);
 }
 
 function dumpMoneyStuffOnScreen() {
-   warArchive.innerHTML = '';
+  warArchive.innerHTML = '';
 
-   var listToShow = allTransactions;
-   if (activeFilter !== 'all') {
-        listToShow = allTransactions.filter(t => t.type === activeFilter);
-   }
+  var listToShow = allTransactions;
+  if (activeFilter !== 'all') {
+    listToShow = allTransactions.filter(t => t.type === activeFilter);
+  }
 
-   for (var i = listToShow.length - 1; i >= 0; i--) {
-        var t = listToShow[i];
-      warArchive.innerHTML += `
-        <div class="combatEntry">
-            <div>
-                <div>${t.description}</div>
-                <small>${t.category} • ${t.date}</small>
-            </div>
-            <div class="damageReport ${t.type}">₹${t.amount}</div>
-            <button class="snapButton" onclick="yeetTransactionOut(${t.id})">Delete</button>
-        </div>`;
-   }
+  if (listToShow.length === 0) {
+    warArchive.innerHTML = '<div class="emptyState">No transactions yet</div>';
+    return;
+  }
+
+  for (var i = listToShow.length - 1; i >= 0; i--) {
+    var t = listToShow[i];
+    var div = document.createElement('div');
+    div.className = 'combatEntry';
+    div.innerHTML = `
+      <div>
+        <div style="font-weight: 600;">${t.description}</div>
+        <small style="color: #6b7280;">${t.category} • ${t.date}</small>
+      </div>
+      <div class="damageReport ${t.type}">₹${t.amount.toFixed(2)}</div>
+      <button class="snapButton" onclick="yeetTransactionOut(${t.id})">Delete</button>
+    `;
+    warArchive.appendChild(div);
+  }
 }
 
 function expenseBarVibes() {
- powerDistribution.innerHTML = '';
-     var map = {};
+  powerDistribution.innerHTML = '';
+  var map = {};
 
- allTransactions.filter(t => t.type === 'expense')
-      .forEach(t => {
-          if (!map[t.category]) map[t.category] = 0;
-          map[t.category] += t.amount;
-      });
+  allTransactions.filter(t => t.type === 'expense')
+    .forEach(t => {
+      if (!map[t.category]) map[t.category] = 0;
+      map[t.category] += t.amount;
+    });
 
-   var total = 0;
-   for (var k in map) total += map[k];
+  var total = 0;
+  for (var k in map) total += map[k];
 
- for (var c in map) {
-     let p = ((map[c] / total) * 100).toFixed(1);
-     powerDistribution.innerHTML += `
-      <div>${c} - ₹${map[c]}
-        <div class="energyBar">
-           <div class="energyFill" style="width:${p}%">${p}%</div>
-        </div>
-      </div>`;
- }
+  if (total === 0) {
+    powerDistribution.innerHTML = '<div class="emptyState">No expenses yet</div>';
+    return;
+  }
+
+  for (var c in map) {
+    var p = ((map[c] / total) * 100).toFixed(1);
+    var div = document.createElement('div');
+    div.innerHTML = `
+      <div style="margin-bottom: 5px; font-weight: 600;">${c} - ₹${map[c].toFixed(2)}</div>
+      <div class="energyBar">
+        <div class="energyFill" style="width:${p}%">${p}%</div>
+      </div>
+    `;
+    powerDistribution.appendChild(div);
+  }
 }
 
 function rerenderEverythingAgain() {
-    updateTheBigNumbers();
- dumpMoneyStuffOnScreen();
-    expenseBarVibes();
+  updateTheBigNumbers();
+  dumpMoneyStuffOnScreen();
+  expenseBarVibes();
 }
 
 function yeetTransactionOut(id) {
- allTransactions = allTransactions.filter(t => t.id !== id);
- saveToLocalStorage();
+  if (confirm('Are you sure you want to delete this transaction?')) {
+    allTransactions = allTransactions.filter(t => t.id !== id);
+    saveToStorage();
     rerenderEverythingAgain();
+  }
 }
 
 function filterWalaFunction(f, btn) {
-     activeFilter = f;
- document.querySelectorAll('.toggleSwitch')
-     .forEach(b => b.classList.remove('engaged'));
-   btn.classList.add('engaged');
- dumpMoneyStuffOnScreen();
+  activeFilter = f;
+  document.querySelectorAll('.toggleSwitch')
+    .forEach(b => b.classList.remove('engaged'));
+  btn.classList.add('engaged');
+  dumpMoneyStuffOnScreen();
 }
 
+/* ---- Udhar Functions ---- */
+function openAddPersonModal() {
+  document.getElementById('addPersonModal').classList.add('active');
+  document.getElementById('personName').value = '';
+}
+
+function closeAddPersonModal() {
+  document.getElementById('addPersonModal').classList.remove('active');
+}
+
+function addPerson() {
+  var name = document.getElementById('personName').value.trim();
+  
+  if (!name) {
+    showError('personError', 'Name cannot be empty');
+    return;
+  }
+
+  if (udharData.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+    showError('personError', 'Person already exists');
+    return;
+  }
+
+  var person = {
+    id: Date.now(),
+    name: name,
+    balance: 0,
+    transactions: []
+  };
+
+  udharData.push(person);
+  saveToStorage();
+  closeAddPersonModal();
+  renderUdharCards();
+}
+
+function openTransactionModal(personId) {
+  currentPersonId = personId;
+  var person = udharData.find(p => p.id === personId);
+  document.getElementById('transactionModalTitle').textContent = `Add Transaction - ${person.name}`;
+  document.getElementById('addTransactionModal').classList.add('active');
+  document.getElementById('transactionDesc').value = '';
+  document.getElementById('transactionAmount').value = '';
+}
+
+function closeTransactionModal() {
+  document.getElementById('addTransactionModal').classList.remove('active');
+  currentPersonId = null;
+}
+
+function addTransaction() {
+  var desc = document.getElementById('transactionDesc').value.trim();
+  var amt = parseFloat(document.getElementById('transactionAmount').value);
+
+  if (!desc) {
+    showError('transactionError', 'Description cannot be empty');
+    return;
+  }
+
+  if (isNaN(amt) || amt === 0) {
+    showError('transactionError', 'Amount cannot be 0');
+    return;
+  }
+
+  var person = udharData.find(p => p.id === currentPersonId);
+  if (!person) return;
+
+  var transaction = {
+    id: Date.now(),
+    description: desc,
+    amount: amt,
+    date: new Date().toLocaleDateString()
+  };
+
+  person.transactions.push(transaction);
+  person.balance += amt;
+  
+  saveToStorage();
+  closeTransactionModal();
+  renderUdharCards();
+}
+
+function deletePerson(personId) {
+  if (confirm('Are you sure you want to delete this person and all their transactions?')) {
+    udharData = udharData.filter(p => p.id !== personId);
+    saveToStorage();
+    renderUdharCards();
+  }
+}
+
+function renderUdharCards() {
+  var container = document.getElementById('udharCards');
+  container.innerHTML = '';
+
+  if (udharData.length === 0) {
+    container.innerHTML = '<div class="emptyState">No people added yet. Click "Add Person" to start tracking.</div>';
+    return;
+  }
+
+  udharData.forEach(person => {
+    var card = document.createElement('div');
+    card.className = 'udharCard';
+    
+    var balanceClass = person.balance > 0 ? 'positive' : person.balance < 0 ? 'negative' : '';
+    var balanceText = person.balance > 0 
+      ? `They owe you ₹${person.balance.toFixed(2)}` 
+      : person.balance < 0 
+      ? `You owe them ₹${Math.abs(person.balance).toFixed(2)}`
+      : 'Settled';
+
+    var historyHtml = '';
+    if (person.transactions.length > 0) {
+      historyHtml = '<div class="udharHistory">';
+      person.transactions.slice(-5).reverse().forEach(t => {
+        var sign = t.amount > 0 ? '+' : '';
+        historyHtml += `
+          <div class="udharHistoryItem">
+            <span>${t.description}</span>
+            <span style="color: ${t.amount > 0 ? '#22c55e' : '#ef4444'}; font-weight: 600;">
+              ${sign}₹${t.amount.toFixed(2)}
+            </span>
+          </div>
+        `;
+      });
+      historyHtml += '</div>';
+    }
+
+    card.innerHTML = `
+      <h3>${person.name}</h3>
+      <div class="udharAmount ${balanceClass}">${balanceText}</div>
+      ${historyHtml}
+      <div class="udharActions">
+        <button onclick="openTransactionModal(${person.id})">Add Money</button>
+        <button class="snapButton" onclick="deletePerson(${person.id})">Delete</button>
+      </div>
+    `;
+    
+    container.appendChild(card);
+  });
+}
+
+/* ---- Initialize ---- */
 window.onload = function() {
-   loadFromLocalStorage();
-   categoryMagicThingy();
-      formGoBrrr();
-   rerenderEverythingAgain();
+  loadFromStorage();
+  categoryMagicThingy();
+  formGoBrrr();
+  rerenderEverythingAgain();
 };
 </script>
 
