@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Finance Tracker</title>
+
+<style>
+* {
+  margin: 0;
+    padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+    background: white;
+ padding: 30px;
+}
+
+/* ===== STRUCTURE OF MY NIGGER ===== */
+.optimusPrime {
+      max-width: 1200px;
+   margin: auto;
+ background: white;
+    border-radius: 24px;
+ overflow: hidden;
+   box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+
+.ironManHUD {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+     padding: 40px 30px;
+  color: white;
+   text-align: center;
+}
+
+.avengersHQ {
+      padding: 35px;
+}
+
+/* ===== YO YO HONEY SINGH ===== */
+.infinityStones {
+   display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 25px;
+    margin-bottom: 35px;
+}
+
+.arcReactor {
+    padding: 30px;
+  border-radius: 20px;
+     background: white;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.arcReactor h3 {
+      color: #555;
+   margin-bottom: 10px;
+}
+
+.arcReactor .amount {
+  font-size: 2.2rem;
+      font-weight: 700;
+}
+
+.hulkMode .amount { color: #22c55e; }
+.scarletWitchMode .amount { color: #ef4444; }
+.thanosBalance .amount { color: #eab308; }
+
+/* ===== INPUT YAHA ===== */
+.jarvisConsole {
+    padding: 30px;
+   border-radius: 20px;
+ box-shadow: inset 0 0 0 1px #e5e7eb;
+     margin-bottom: 35px;
+}
+
+.formGrid {
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 18px;
+}
+
+input, select {
+    padding: 14px;
+ border-radius: 10px;
+     border: 1px solid #d1d5db;
+}
+
+button {
+   margin-top: 15px;
+      padding: 14px;
+  border-radius: 12px;
+ border: none;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+   color: white;
+ cursor: pointer;
+}
+
+/* ===== FELTER ===== */
+
+
+
+.controlPanel {
+
+   display: flex;
+
+
+ gap: 12px;
+    margin-bottom: 20px;
+}
+
+.toggleSwitch {
+      padding: 10px 22px;
+ border-radius: 999px;
+  border: none;
+     background: #e5e7eb;
+ cursor: pointer;
+}
+
+.toggleSwitch.engaged {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+}
+
+
+
+/* ===== TRANSACTIONS ===== */
+.warArchive {
+
+     max-height: 500px;
+
+ overflow-y: auto;
+
+}
+
+.combatEntry {
+   display: flex;
+
+       justify-content: space-between;
+     padding: 18px;
+
+      margin-bottom: 15px;
+
+ background: white;
+
+   border-radius: 14px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.damageReport.income { color: #22c55e; }
+.damageReport.expense { color: #ef4444; }
+
+.snapButton {
+   background: #ef4444;
+    color: white;
+ border-radius: 10px;
+
+   padding: 8px 14px;
+  border: none;
+}
+
+/* ===== CHART ===== */
+.statsRoom {
+    padding: 30px;
+   border-radius: 20px;
+      margin-bottom: 30px;
+}
+
+.energyBar {
+  background: #e5e7eb;
+    height: 38px;
+ border-radius: 999px;
+
+
+   overflow: hidden;
+      margin-bottom: 16px;
+}
+
+.energyFill {
+    height: 100%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+ display: flex;
+    align-items: center;
+   padding-left: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="optimusPrime">
+
+<header class="ironManHUD">
+    <h1>Personal Finance Tracker</h1>
+</header>
+
+<div class="avengersHQ">
+
+<div class="infinityStones">
+    <div class="arcReactor hulkMode">
+        <h3>Total Income</h3>
+        <div class="amount" id="chottaBheem">₹0.00</div>
+    </div>
+    <div class="arcReactor scarletWitchMode">
+        <h3>Total Expense</h3>
+        <div class="amount" id="ultronExpense">₹0.00</div>
+    </div>
+    <div class="arcReactor thanosBalance">
+        <h3>Balance</h3>
+        <div class="amount" id="arjun">₹0.00</div>
+    </div>
+</div>
+
+<div class="jarvisConsole">
+<form id="shieldForm">
+<div class="formGrid">
+    <input id="missionBrief" placeholder="Description" required>
+        <input id="powerLevel" type="number" placeholder="Amount" required>
+   <select id="alignmentType" required>
+        <option value="">Type</option>
+            <option value="income">Income</option>
+        <option value="expense">Expense</option>
+   </select>
+    <select id="battleClass" required>
+      <option value="">Category</option>
+    </select>
+</div>
+<button>Add Transaction</button>
+</form>
+</div>
+
+<div class="statsRoom">
+    <h2>Spending by Category</h2>
+   <div id="powerDistribution"></div>
+</div>
+
+<div class="battleLog">
+<div class="controlPanel">
+    <button class="toggleSwitch engaged" onclick="filterWalaFunction('all', this)">All</button>
+       <button class="toggleSwitch" onclick="filterWalaFunction('income', this)">Income</button>
+    <button class="toggleSwitch" onclick="filterWalaFunction('expense', this)">Expense</button>
+</div>
+<div class="warArchive" id="warArchive"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+var allTransactions = [];
+ var activeFilter = 'all';
+
+var incomeTypes = ['Salary','Freelance','Investment'];
+   var expenseTypes = ['Food','Bills','Shopping','Health'];
+
+function categoryMagicThingy() {
+ alignmentType.onchange = function() {
+      battleClass.innerHTML = '<option value="">Category</option>';
+    var list = alignmentType.value === 'income' ? incomeTypes : expenseTypes;
+        list.forEach(x => {
+      var o = document.createElement('option');
+          o.textContent = o.value = x;
+        battleClass.appendChild(o);
+    });
+  };
+}
+
+function formGoBrrr() {
+  shieldForm.onsubmit = function(e) {
+       e.preventDefault();
+   allTransactions.push({
+     id: Date.now(),
+        description: missionBrief.value,
+      amount: +powerLevel.value,
+        type: alignmentType.value,
+       category: battleClass.value,
+        date: new Date().toLocaleDateString()
+     });
+     shieldForm.reset();
+        rerenderEverythingAgain();
+  };
+}
+
+function totalMoneyThingy() {
+   var bheemPower = 0, villainDamage = 0;
+ allTransactions.forEach(t => {
+      t.type === 'income'
+        ? bheemPower += t.amount
+           : villainDamage += t.amount;
+   });
+ return {
+      bheemPower,
+   villainDamage,
+      arjunDecision: bheemPower - villainDamage
+ };
+}
+
+function updateTheBigNumbers() {
+   var m = totalMoneyThingy();
+    chottaBheem.innerHTML = '₹' + m.bheemPower.toFixed(2);
+ ultronExpense.innerHTML = '₹' + m.villainDamage.toFixed(2);
+     arjun.innerHTML = '₹' + m.arjunDecision.toFixed(2);
+}
+
+function dumpMoneyStuffOnScreen() {
+   warArchive.innerHTML = '';
+ allTransactions
+     .filter(t => activeFilter === 'all' || t.type === activeFilter)
+   .reverse()
+      .forEach(t => {
+      warArchive.innerHTML += `
+        <div class="combatEntry">
+            <div>
+                <div>${t.description}</div>
+                <small>${t.category} • ${t.date}</small>
+            </div>
+            <div class="damageReport ${t.type}">₹${t.amount}</div>
+            <button class="snapButton" onclick="yeetTransactionOut(${t.id})">Delete</button>
+        </div>`;
+   });
+}
+
+function expenseBarVibes() {
+ powerDistribution.innerHTML = '';
+     var map = {};
+ allTransactions.filter(t => t.type === 'expense')
+      .forEach(t => map[t.category] = (map[t.category] || 0) + t.amount);
+
+   var total = Object.values(map).reduce((a,b)=>a+b,0);
+ for(let c in map){
+     let p = ((map[c]/total)*100).toFixed(1);
+     powerDistribution.innerHTML += `
+      <div>${c} - ₹${map[c]}
+        <div class="energyBar">
+           <div class="energyFill" style="width:${p}%">${p}%</div>
+        </div>
+      </div>`;
+ }
+}
+
+function rerenderEverythingAgain() {
+    updateTheBigNumbers();
+ dumpMoneyStuffOnScreen();
+    expenseBarVibes();
+}
+
+function yeetTransactionOut(id) {
+ allTransactions = allTransactions.filter(t => t.id !== id);
+    rerenderEverythingAgain();
+}
+
+function filterWalaFunction(f, btn) {
+     activeFilter = f;
+ document.querySelectorAll('.toggleSwitch')
+     .forEach(b => b.classList.remove('engaged'));
+   btn.classList.add('engaged');
+ dumpMoneyStuffOnScreen();
+}
+
+window.onload = function() {
+   categoryMagicThingy();
+      formGoBrrr();
+   rerenderEverythingAgain();
+};
+</script>
+
+</body>
+</html>
