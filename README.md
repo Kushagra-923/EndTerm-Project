@@ -7,7 +7,7 @@ Built using HTML, CSS, and Vanilla JavaScript. Data is stored locally in the bro
 Live Demo:
 https://kushagra-923.github.io/EndTerm-Project/
 
-Features
+# Features
 
 Add income & expenses
 
@@ -21,7 +21,7 @@ Udhar (debt) tracking
 
 Works offline (LocalStorage)
 
-Tech Stack
+# Tech Stack
 
 HTML
 
@@ -29,10 +29,10 @@ CSS
 
 JavaScript
 
-Run Locally
+# Run Locally
 
 Just open index.html in your browser.
 
-Author
+# Author
 
 Kushagra Shukla
