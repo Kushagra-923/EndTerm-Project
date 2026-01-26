@@ -1,3 +1,17 @@
+// DOM references (FIX)
+var alignmentType = document.getElementById('alignmentType');
+var battleClass = document.getElementById('battleClass');
+var shieldForm = document.getElementById('shieldForm');
+var powerLevel = document.getElementById('powerLevel');
+var missionBrief = document.getElementById('missionBrief');
+
+var chottaBheem = document.getElementById('chottaBheem');
+var ultronExpense = document.getElementById('ultronExpense');
+var arjun = document.getElementById('arjun');
+var warArchive = document.getElementById('warArchive');
+var powerDistribution = document.getElementById('powerDistribution');
+
+
 var allTransactions = [];
 var activeFilter = 'all';
 var udharData = [];
